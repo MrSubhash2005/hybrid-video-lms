@@ -126,3 +126,4 @@ These issues will be raised on GitHub for tracking:
 13. **Issue #13:** Performance Optimization *(Assigned: All)*
 14. **Issue #14:** Documentation *(Assigned: All)*
 15. **Issue #15:** Testing *(Assigned: All)*
+16. CI verification test.

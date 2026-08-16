@@ -23,6 +23,9 @@
     "@revideo/cli": "^0.11.0",
     "@revideo/core": "0.10.4",
     "@revideo/renderer": "^0.11.0",
+    "@revideo/cli": "0.10.4",
+    "@revideo/core": "0.10.4",
+    "@revideo/renderer": "0.10.4",
     "@revideo/ui": "0.10.4",
     "typescript": "5.5.4"
   }

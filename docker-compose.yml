@@ -10,6 +10,7 @@ services:
       - "8000:8000"
     volumes:
       - ./services/talking-head-service:/app
+      - /app/node_modules
       - ./shared:/app/shared
       - ./examples:/app/examples
     environment:
@@ -34,11 +35,14 @@ services:
       - "3000:3000"
     volumes:
       - ./services/animation-service:/app
+      - /app/node_modules
       - ./shared:/app/shared
       - ./examples:/app/examples
     environment:
       - NODE_ENV=development
       - PORT=3000
+      - SARVAM_API_KEY=${SARVAM_API_KEY}
+
     depends_on:
       - talking-head-service
     restart: unless-stopped

@@ -44,8 +44,10 @@ graph TD
 * **Core Responsibilities:**
   * Parse JSON configurations defining templates, flowchart nodes, code highlights, transitions, and timing parameters.
   * Render modular video sequences containing dynamic text, shapes, charts, and code walk-throughs.
-  * Package the Revideo project structure and orchestrate headless rendering using browser-less chromium/FFmpeg drivers.
-* **Tech Stack:** Node.js, React (for Motion Canvas/Revideo components), TypeScript, Canvas API, Chromium.
+  * Display **two-line synchronized subtitles** driven by word-level alignment JSON files (`src/assets/alignment/`), generated from TTS audio via the Sarvam AI API.
+  * Render each scene in an **isolated child process** (`render-single.js`) to prevent Puppeteer/Vite memory leaks during batch rendering.
+  * Mux TTS audio, normalize output, and concatenate all scenes into the final MP4 via FFmpeg.
+* **Tech Stack:** Node.js, TypeScript, Revideo/Motion Canvas, Chromium (Puppeteer), FFmpeg, Python (audio generation + alignment).
 
 ### 3. Shared Directory
 * **Location:** `/shared`

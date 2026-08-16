@@ -63,8 +63,47 @@ Thumbs.db
 .env.production.local
 docker-compose.override.yml
 
-# Temporary output and render cache files (but keep example directories)
-examples/sample-output/*.mp4
-examples/sample-output/*.wav
-examples/sample-output/*.png
+# Temporary output and render cache files
+render-output/
+generated_audio/
+tmp_*
+*.mp4
+*.wav
+*.mp3
 *.log
+
+# Cache setup script output log (generated dynamically)
+services/animation-service/public/outputs/.cache-setup-status
+
+
+# Video Rendering Temp files & outputs
+services/animation-service/output.mp4
+services/animation-service/public/assets/audio_*
+services/animation-service/public/assets/frames_*
+services/animation-service/public/assets/audio/
+services/animation-service/public/assets/final_audio_*
+services/animation-service/public/assets/final_video_*
+services/animation-service/templates/rag/output/
+
+# Keep job-specific cache files ignored (generated per-render)
+services/animation-service/public/outputs/video_job_*.mp4
+# Also ignore the '2' variants (secondary cache copies)
+services/animation-service/public/outputs/video_*_*2.mp4
+# Ignore variant MP4s in assets
+services/animation-service/public/assets/step_*.mp4
+services/animation-service/public/assets/step_*.wav
+
+# But TRACK the 8 main pre-rendered cache files (4 courses × 2 genders)
+# These allow first-time cloners to use the API without external dependencies
+!services/animation-service/public/outputs/video_git_male.mp4
+!services/animation-service/public/outputs/video_git_female.mp4
+!services/animation-service/public/outputs/video_rag_male.mp4
+!services/animation-service/public/outputs/video_rag_female.mp4
+!services/animation-service/public/outputs/video_dsa_male.mp4
+!services/animation-service/public/outputs/video_dsa_female.mp4
+!services/animation-service/public/outputs/video_explainer_male.mp4
+!services/animation-service/public/outputs/video_explainer_female.mp4
+
+.vercel
+.env*
+

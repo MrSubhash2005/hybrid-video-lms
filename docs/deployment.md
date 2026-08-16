@@ -39,6 +39,10 @@ MODEL_CACHE_DIR=/app/models
 # Animation Service settings
 PORT=3000
 NODE_ENV=production
+
+# Sarvam AI — Required for TTS audio generation (scripts/generate_all_audio.py)
+# Get your key at: https://dashboard.sarvam.ai
+SARVAM_API_KEY=your_sarvam_api_key_here
 ```
 
 ---
