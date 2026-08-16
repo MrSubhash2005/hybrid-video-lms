@@ -1,0 +1,57 @@
+[
+  {
+    "text": "Let's summarize everything we've learnt about single-link lists by looking at the time complexity for each operation.",
+    "start": 0.0,
+    "end": 6.12
+  },
+  {
+    "text": "We'll build out a cheat sheet table that you can refer back to.",
+    "start": 6.12,
+    "end": 9.96
+  },
+  {
+    "text": "Accessing or searching takes linear time since we must traverse.",
+    "start": 9.96,
+    "end": 13.82
+  },
+  {
+    "text": "Inserting at the head is extremely fast, taking constant time.",
+    "start": 13.82,
+    "end": 18.22
+  },
+  {
+    "text": "Inserting at the tail or middle requires traversal, taking linear time.",
+    "start": 18.22,
+    "end": 23.3
+  },
+  {
+    "text": "Deleting the head is constant time, but deleting from the middle or tail also requires traversal,",
+    "start": 23.3,
+    "end": 29.56
+  },
+  {
+    "text": "making",
+    "start": 29.56,
+    "end": 31.56
+  },
+  {
+    "text": "in it linear time.",
+    "start": 30.0,
+    "end": 31.28
+  },
+  {
+    "text": "This cheat sheet highlights the primary trade-off of a Simbili linked list.",
+    "start": 31.6,
+    "end": 36.0
+  },
+  {
+    "text": "They are fantastic when you frequently need to add or remove elements directly at the front,",
+    "start": 36.24,
+    "end": 41.2
+  },
+  {
+    "text": "but they slow down significantly if you need to search for or modify elements near the end.",
+    "start": 41.52,
+    "end": 47.12
+  }
+]

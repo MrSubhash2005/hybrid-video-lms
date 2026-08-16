@@ -1,0 +1,112 @@
+[
+  {
+    "text": "So, what actually is a node?",
+    "start": 0.0,
+    "end": 2.0
+  },
+  {
+    "text": "A node is the basic building block of a linked list.",
+    "start": 2.36,
+    "end": 5.52
+  },
+  {
+    "text": "Every node has two parts.",
+    "start": 5.8,
+    "end": 7.32
+  },
+  {
+    "text": "The first part is the data.",
+    "start": 7.52,
+    "end": 9.12
+  },
+  {
+    "text": "This is the actual value you want to store, like a number, a name or anything else.",
+    "start": 9.56,
+    "end": 14.68
+  },
+  {
+    "text": "The second part is called next.",
+    "start": 14.88,
+    "end": 16.76
+  },
+  {
+    "text": "This is a pointer, which simply means it holds the memory address of another node.",
+    "start": 17.04,
+    "end": 22.0
+  },
+  {
+    "text": "Think of it as an arrow pointing to whatever comes after it in the list.",
+    "start": 22.36,
+    "end": 26.56
+  },
+  {
+    "text": "If there is nothing after it, the next pointer points to the next point.",
+    "start": 26.56,
+    "end": 30.56
+  },
+  {
+    "text": "points to nothing at all, which in C++ we present using a special value called netindian.",
+    "start": 30.0,
+    "end": 36.44
+  },
+  {
+    "text": "In code, we define a node using a struct.",
+    "start": 36.44,
+    "end": 39.44
+  },
+  {
+    "text": "A struct has two members.",
+    "start": 39.44,
+    "end": 41.54
+  },
+  {
+    "text": "One is an integer called data and the other is a pointer to another node called next.",
+    "start": 41.54,
+    "end": 47.04
+  },
+  {
+    "text": "That's it.",
+    "start": 47.04,
+    "end": 48.04
+  },
+  {
+    "text": "That's the entire building block.",
+    "start": 48.04,
+    "end": 49.84
+  },
+  {
+    "text": "A linked list then is simply a chain of these nodes, where each one points to the next.",
+    "start": 49.84,
+    "end": 57.08
+  },
+  {
+    "text": "Starting from a special node we call the head.",
+    "start": 57.08,
+    "end": 59.7
+  },
+  {
+    "text": "The head",
+    "start": 59.7,
+    "end": 60.2
+  },
+  {
+    "text": "is just a pointer that tells us where the list begins. If the head is non-chill, that",
+    "start": 60.0,
+    "end": 66.44
+  },
+  {
+    "text": "means the list is empty. Once we have a starting node, we can follow the next pointers one",
+    "start": 66.44,
+    "end": 72.68
+  },
+  {
+    "text": "after another to reach every other node in the list. This simple structure, a value plus",
+    "start": 72.68,
+    "end": 79.24
+  },
+  {
+    "text": "a pointer is really all we need to build something powerful.",
+    "start": 79.24,
+    "end": 83.28
+  }
+]

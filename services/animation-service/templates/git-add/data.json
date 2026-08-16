@@ -1,0 +1,11 @@
+{
+  "command": "git add .",
+  "output": [
+    "Staging files...",
+    "README.md",
+    "component.tsx",
+    "scene.tsx",
+    "data.json",
+    "Done."
+  ]
+}

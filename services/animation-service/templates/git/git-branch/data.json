@@ -1,0 +1,9 @@
+{
+  "command": "git branch",
+  "output": [
+    "* main",
+    "docs-testing",
+    "feature/git-animation",
+    "feature/subtitles"
+  ]
+}

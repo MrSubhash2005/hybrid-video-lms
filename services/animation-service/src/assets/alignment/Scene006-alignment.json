@@ -1,0 +1,112 @@
+[
+  {
+    "text": "Let's tackle one more case.",
+    "start": 0.0,
+    "end": 1.5
+  },
+  {
+    "text": "Insert in somewhere in the middle of the list at a specific position.",
+    "start": 1.74,
+    "end": 5.5
+  },
+  {
+    "text": "Say we want our new node to become the third node in the list.",
+    "start": 5.6,
+    "end": 8.94
+  },
+  {
+    "text": "To do this, we need to find the node that comes right before the position we're inserting into.",
+    "start": 9.2,
+    "end": 14.4
+  },
+  {
+    "text": "Since that node's next pointer is what we'll need to update.",
+    "start": 14.7,
+    "end": 18.4
+  },
+  {
+    "text": "We traverse from head moving forward one step at a time",
+    "start": 18.5,
+    "end": 22.1
+  },
+  {
+    "text": "until we reach the node just before our target position.",
+    "start": 22.3,
+    "end": 25.6
+  },
+  {
+    "text": "Let's call this node temp.",
+    "start": 25.8,
+    "end": 27.3
+  },
+  {
+    "text": "Once we found it, here's the key idea.",
+    "start": 27.3,
+    "end": 30.3
+  },
+  {
+    "text": "Our new node's next pointer should point to whatever temp's next currently points to.",
+    "start": 30.0,
+    "end": 36.08
+  },
+  {
+    "text": "This preserves the rest of the list so nothing gets lost.",
+    "start": 36.08,
+    "end": 39.92
+  },
+  {
+    "text": "Then we update temp's next pointer to point to our new node in that order.",
+    "start": 39.92,
+    "end": 46.72
+  },
+  {
+    "text": "This order matters a lot.",
+    "start": 46.72,
+    "end": 48.52
+  },
+  {
+    "text": "If we updated temp's next first, we would lose the reference to the rest of the list",
+    "start": 48.52,
+    "end": 53.32
+  },
+  {
+    "text": "because nothing would be pointing to it anymore.",
+    "start": 53.32,
+    "end": 56.12
+  },
+  {
+    "text": "by connecting our new load forward first and then relinking.",
+    "start": 56.12,
+    "end": 60.04
+  },
+  {
+    "text": "backward to make sure every node stays connected throughout the process.",
+    "start": 60.0,
+    "end": 64.84
+  },
+  {
+    "text": "As a special case, if we are inserting at position 0, that's really just inserting",
+    "start": 64.84,
+    "end": 69.84
+  },
+  {
+    "text": "at the head, which we already know how to do.",
+    "start": 69.84,
+    "end": 72.8
+  },
+  {
+    "text": "Otherwise, we count our way to the correct position and perform this two-step relinking.",
+    "start": 72.8,
+    "end": 79.88
+  },
+  {
+    "text": "Since we might have to walk part way or even all the way through the list to find the right",
+    "start": 79.88,
+    "end": 84.28
+  },
+  {
+    "text": "spot, this operation also takes O of n time in the worst case.",
+    "start": 84.28,
+    "end": 89.08
+  }
+]

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS Animation Service - Sandbox</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: #f8fafc;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    select:focus, input[type="text"]:focus {
+      border-color: #6366f1;
+    }
+
+    button {
+      width: 100%;
+      background-color: #6366f1;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #4f46e5;
+    }
+
+    button:disabled {
+      background-color: #475569;
+      cursor: not-allowed;
+    }
+
+    /* Loader / Status state */
+    .status-container {
+      display: none;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .spinner {
+      border: 3px solid #334155;
+      border-top: 3px solid #6366f1;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 16px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .status-text {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .progress-text {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    /* Error state */
+    .error-container {
+      display: none;
+      background-color: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 20px;
+      color: #fca5a5;
+      font-size: 13px;
+    }
+
+    .error-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <h1 id="title">Render Animation Video</h1>
+      
+      <!-- Interactive Form -->
+      <form id="render-form" onsubmit="submitJob(event)">
+        <div class="form-group">
+          <label for="course-select">Course Timeline</label>
+          <select id="course-select">
+            <option value="git">Git Internals</option>
+            <option value="explainer">LMS Explainer</option>
+            <option value="rag">RAG Pipeline</option>
+            <option value="dsa">DSA - Singly Linked List</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="celebrity-input">Celebrity Narrator Voice</label>
+          <input type="text" id="celebrity-input" placeholder="e.g. Shahrukh Khan, NTR Jr, Deepika" required>
+        </div>
+
+        <div class="form-group">
+          <label for="gender-select">Voice Gender</label>
+          <select id="gender-select">
+            <option value="auto">Auto-detect from Name</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <button type="submit" id="btn-submit">Generate Video</button>
+      </form>
+
+      <!-- Status Indicator -->
+      <div id="status-area" class="status-container">
+        <div class="spinner"></div>
+        <div id="status-msg" class="status-text">Queuing job...</div>
+        <div id="progress-msg" class="progress-text">0%</div>
+      </div>
+
+      <!-- Error Alert -->
+      <div id="error-area" class="error-container">
+        <div class="error-title">Render Failed</div>
+        <div id="error-msg">An unexpected error occurred.</div>
+        <button onclick="resetForm()" style="background-color: #334155; margin-top: 12px; padding: 8px;">Try Again</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let pollInterval = null;
+
+    async function submitJob(event) {
+      event.preventDefault();
+      
+      const course = document.getElementById('course-select').value;
+      const celebrity = document.getElementById('celebrity-input').value.trim();
+      const gender = document.getElementById('gender-select').value;
+      
+      const form = document.getElementById('render-form');
+      const statusArea = document.getElementById('status-area');
+      const errorArea = document.getElementById('error-area');
+      const btnSubmit = document.getElementById('btn-submit');
+      
+      // Toggle visibility
+      form.style.display = 'none';
+      errorArea.style.display = 'none';
+      statusArea.style.display = 'block';
+      updateStatus('Initializing job...', '0%');
+      
+      try {
+        const response = await fetch('/api/v1/course/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ course, celebrity, gender })
+        });
+
+        if (!response.ok) {
+          const errData = await response.json();
+          throw new Error(errData.error || `HTTP ${response.status}`);
+        }
+
+        const job = await response.json();
+        
+        if (job.status === 'completed') {
+          // Instant redirect for cache hits
+          updateStatus('Cache hit! Redirecting...', '100%');
+          setTimeout(() => {
+            window.location.href = job.output_url;
+          }, 500);
+        } else {
+          // Poll for cache misses
+          pollJobStatus(job.job_id);
+        }
+      } catch (err) {
+        showError(err.message);
+      }
+    }
+
+    function pollJobStatus(jobId) {
+      if (pollInterval) clearInterval(pollInterval);
+      
+      pollInterval = setInterval(async () => {
+        try {
+          const response = await fetch(`/api/v1/course/jobs/${jobId}`);
+          if (!response.ok) throw new Error(`HTTP Status ${response.status}`);
+          
+          const job = await response.json();
+          
+          if (job.status === 'completed') {
+            clearInterval(pollInterval);
+            updateStatus('Completed! Redirecting to video...', '100%');
+            setTimeout(() => {
+              window.location.href = job.output_url;
+            }, 800);
+          } else if (job.status === 'failed') {
+            clearInterval(pollInterval);
+            showError(job.error || 'The rendering pipeline encountered an error.');
+          } else {
+            updateStatus(getReadableStatus(job.status), `${job.progress}%`);
+          }
+        } catch (err) {
+          console.warn('Polling error:', err);
+        }
+      }, 1500);
+    }
+
+    function getReadableStatus(status) {
+      switch(status) {
+        case 'queued': return 'Queued in background...';
+        case 'generating_audio': return 'Generating narration audio...';
+        case 'probing_durations': return 'Calculating scene timeline...';
+        case 'rendering_frames': return 'Rendering layout frames...';
+        case 'compiling_video': return 'Compiling video track...';
+        case 'compiling_audio': return 'Assembling audio track...';
+        case 'multiplexing': return 'Multiplexing audio & video...';
+        default: return 'Processing...';
+      }
+    }
+
+    function updateStatus(message, progress) {
+      document.getElementById('status-msg').textContent = message;
+      document.getElementById('progress-msg').textContent = progress;
+    }
+
+    function showError(message) {
+      document.getElementById('status-area').style.display = 'none';
+      document.getElementById('error-msg').textContent = message;
+      document.getElementById('error-area').style.display = 'block';
+    }
+
+    function resetForm() {
+      if (pollInterval) clearInterval(pollInterval);
+      document.getElementById('error-area').style.display = 'none';
+      document.getElementById('status-area').style.display = 'none';
+      document.getElementById('render-form').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

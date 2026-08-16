@@ -1,0 +1,20 @@
+{
+  "name": "video-rag",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "revideo editor --projectFile ./src/project.tsx",
+    "render": "tsc && node dist/render.js"
+  },
+  "dependencies": {
+    "@revideo/core": "0.10.4",
+    "@revideo/2d": "0.10.4",
+    "@revideo/renderer": "0.10.4"
+  },
+  "devDependencies": {
+    "@revideo/ui": "0.10.4",
+    "@revideo/cli": "0.10.4",
+    "typescript": "5.5.4",
+    "vite": "^4.5"
+  }
+}

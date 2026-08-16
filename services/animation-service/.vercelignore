@@ -1,0 +1,10 @@
+# Exclude heavy dev/rendering files from Vercel deployment
+src/scenes
+src/utils
+src/assets
+src/styles
+src/project.ts
+templates
+Dockerfile
+*.md
+tsconfig.json

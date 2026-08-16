@@ -1,0 +1,6 @@
+{
+  "command": "git init",
+  "output": [
+    "Initialized empty Git repository in C:/Users/User/project/.git/"
+  ]
+}

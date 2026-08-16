@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS Video API & CDN Documentation</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="logo-icon">🎬</span>
+        <span class="brand-title">LMS Video Service API</span>
+        <span class="version-tag">v1.0</span>
+      </div>
+      <div class="nav-links">
+        <a href="#try-it">API Sandbox</a>
+        <a href="#api-docs">Docs</a>
+        <span class="status-indicator"><span class="dot"></span> Service Active</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-layout">
+
+    <!-- Hero Header -->
+    <header class="page-header">
+      <h1>AI Celebrity Course Video API</h1>
+      <p>Generate course videos with custom celebrity voice narration, 2D animations, and CDN video streaming.</p>
+    </header>
+
+    <!-- Section 1: Interactive API Sandbox -->
+    <section id="try-it" class="card-section">
+      <div class="section-title">
+        <h2>Interactive API Sandbox</h2>
+        <p>Test video generation with custom celebrity names</p>
+      </div>
+
+      <div class="sandbox-grid">
+        <!-- Form Column -->
+        <form id="api-form" class="sandbox-form" onsubmit="handleGenerate(event)">
+          <div class="form-field">
+            <label for="course-select">Course Module</label>
+            <select id="course-select" name="course">
+              <option value="git">Git Command Internals (15-min Masterclass)</option>
+              <option value="rag" selected>RAG Pipeline Architecture (30 Scenes)</option>
+              <option value="explainer">LMS System Explainer</option>
+              <option value="dsa">DSA - Singly Linked List</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="celebrity-input">Celebrity Narrator <span class="required">*</span></label>
+            <input type="text" id="celebrity-input" name="celebrity" value="Shahrukh Khan" placeholder="e.g. Morgan Freeman, Shahrukh Khan, Deepika, Obama..." required>
+            <span class="help-text">Type any custom celebrity or narrator name.</span>
+          </div>
+
+          <div class="form-field">
+            <label for="gender-select">Voice Gender</label>
+            <select id="gender-select" name="gender">
+              <option value="auto" selected>Auto-detect from Name (AI Classifier)</option>
+              <option value="male">Male Voice</option>
+              <option value="female">Female Voice</option>
+            </select>
+          </div>
+
+          <button type="submit" id="submit-btn" class="btn btn-primary">
+            <span>Generate & Render Video</span>
+          </button>
+        </form>
+
+        <!-- Preview Column -->
+        <div class="sandbox-preview">
+          <div id="preview-placeholder" class="preview-state">
+            <div class="placeholder-content">
+              <span class="placeholder-icon">📹</span>
+              <h3>No Video Loaded</h3>
+              <p>Fill out the form and click Generate to render or load a video.</p>
+            </div>
+          </div>
+
+          <div id="preview-loading" class="preview-state" style="display: none;">
+            <div class="spinner"></div>
+            <h3 id="loading-status">Processing Video Request...</h3>
+            <p id="loading-pct">0%</p>
+          </div>
+
+          <div id="preview-player" class="preview-state" style="display: none;">
+            <div class="video-wrapper">
+              <video id="video-player" controls preload="metadata" playsinline></video>
+            </div>
+            
+            <div class="player-meta">
+              <div class="cdn-link-group">
+                <input type="text" id="cdn-url-field" readonly>
+                <button type="button" class="btn btn-small" onclick="copyCdnUrl()">Copy CDN URL</button>
+              </div>
+              <div class="player-actions">
+                <a id="download-link" href="#" download class="btn btn-secondary">Download MP4</a>
+                <button type="button" class="btn btn-text" onclick="resetSandbox()">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: API Documentation -->
+    <section id="api-docs" class="card-section">
+      <div class="section-title">
+        <h2>API Reference & Usage Documentation</h2>
+        <p>Integrate celebrity course video generation into your application</p>
+      </div>
+
+      <!-- Endpoint 1 -->
+      <div class="doc-block">
+        <div class="endpoint-header">
+          <span class="method post">POST</span>
+          <span class="endpoint-path">/api/v1/course/generate</span>
+        </div>
+        <p class="doc-desc">Queues or instantly returns a course video with voice narration for the specified celebrity.</p>
+
+        <h4>Request Body (JSON)</h4>
+        <pre class="code-block"><code>{
+  "course": "rag",        // Required: "git" | "rag" | "explainer" | "dsa"
+  "celebrity": "Deepika", // Required: Any custom celebrity name
+  "gender": "female"      // Optional: "auto" | "male" | "female"
+}</code></pre>
+
+        <h4>Response (200 OK - Instant Cache / 202 Queued)</h4>
+        <pre class="code-block"><code>{
+  "job_id": "job_39761b60",
+  "status": "completed",
+  "course": "rag",
+  "celebrity": "Deepika",
+  "gender": "female",
+  "speaker": "shreya",
+  "output_url": "/outputs/video_job_39761b60.mp4",
+  "check_status_url": "/api/v1/course/jobs/job_39761b60"
+}</code></pre>
+      </div>
+
+      <!-- Endpoint 2 -->
+      <div class="doc-block">
+        <div class="endpoint-header">
+          <span class="method get">GET</span>
+          <span class="endpoint-path">/api/v1/course/jobs/:jobId</span>
+        </div>
+        <p class="doc-desc">Check status and rendering progress percentage of a job.</p>
+      </div>
+
+      <!-- Endpoint 3 -->
+      <div class="doc-block">
+        <div class="endpoint-header">
+          <span class="method get">GET</span>
+          <span class="endpoint-path">/api/v1/cdn/stream/:filename</span>
+        </div>
+        <p class="doc-desc">CDN streaming endpoint supporting HTTP Range byte seeking (`206 Partial Content`) for embedded video players.</p>
+      </div>
+
+      <!-- Code Examples -->
+      <div class="doc-block">
+        <h3>Code Examples</h3>
+
+        <div class="code-tabs">
+          <div class="tab-header">
+            <button class="tab-btn active" onclick="switchCodeTab('curl')">cURL</button>
+            <button class="tab-btn" onclick="switchCodeTab('javascript')">JavaScript</button>
+            <button class="tab-btn" onclick="switchCodeTab('python')">Python</button>
+          </div>
+
+          <div id="code-curl" class="tab-content active">
+            <pre class="code-block"><code>curl -X POST http://localhost:3000/api/v1/course/generate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "course": "rag",
+    "celebrity": "Shahrukh Khan",
+    "gender": "male"
+  }'</code></pre>
+          </div>
+
+          <div id="code-javascript" class="tab-content" style="display:none;">
+            <pre class="code-block"><code>const response = await fetch('http://localhost:3000/api/v1/course/generate', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    course: 'rag',
+    celebrity: 'Deepika Padukone',
+    gender: 'female'
+  })
+});
+
+const data = await response.json();
+console.log('CDN Video URL:', data.output_url);</code></pre>
+          </div>
+
+          <div id="code-python" class="tab-content" style="display:none;">
+            <pre class="code-block"><code>import requests
+
+url = "http://localhost:3000/api/v1/course/generate"
+payload = {
+    "course": "git",
+    "celebrity": "Morgan Freeman",
+    "gender": "male"
+}
+
+response = requests.post(url, json=payload)
+data = response.json()
+print("CDN Video URL:", data.get("output_url"))</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="toast" class="toast" style="display:none;">URL copied to clipboard!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

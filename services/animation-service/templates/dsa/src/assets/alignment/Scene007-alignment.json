@@ -1,0 +1,142 @@
+[
+  {
+    "text": "Now let's talk about deleting nodes.",
+    "start": 0.0,
+    "end": 2.0
+  },
+  {
+    "text": "And there are really three situations to think about.",
+    "start": 2.44,
+    "end": 5.2
+  },
+  {
+    "text": "Deleting the head, deleting from the middle and deleting the tail.",
+    "start": 5.76,
+    "end": 10.6
+  },
+  {
+    "text": "Let's start with the head since it's the simplest.",
+    "start": 11.04,
+    "end": 13.72
+  },
+  {
+    "text": "To delete the head node, we save a temporary pointer to it.",
+    "start": 14.2,
+    "end": 17.6
+  },
+  {
+    "text": "So we don't lose track of it in memory.",
+    "start": 17.96,
+    "end": 20.04
+  },
+  {
+    "text": "Then we move head forward.",
+    "start": 20.32,
+    "end": 22.4
+  },
+  {
+    "text": "So it now points to the second node in the list.",
+    "start": 22.68,
+    "end": 25.28
+  },
+  {
+    "text": "Finally, we delete the old head node, freeing up its memory.",
+    "start": 25.52,
+    "end": 29.6
+  },
+  {
+    "text": "Thank you.",
+    "start": 29.6,
+    "end": 30.6
+  },
+  {
+    "text": "Just two steps and we are done in constant time.",
+    "start": 30.0,
+    "end": 33.34
+  },
+  {
+    "text": "Deleting from the middle or the tail works a bit differently.",
+    "start": 33.34,
+    "end": 37.14
+  },
+  {
+    "text": "And honestly, they use the exact same logic.",
+    "start": 37.14,
+    "end": 40.88
+  },
+  {
+    "text": "Because remember, we don't have a separate tail pointer.",
+    "start": 40.88,
+    "end": 44.58
+  },
+  {
+    "text": "To delete a node at some position, we first need to find the node right before it.",
+    "start": 44.58,
+    "end": 50.26
+  },
+  {
+    "text": "Just like we did with insertion.",
+    "start": 50.26,
+    "end": 52.42
+  },
+  {
+    "text": "We traverse from head, counting our steps,",
+    "start": 52.42,
+    "end": 55.56
+  },
+  {
+    "text": "until temp lands on the node just before the one we want to remove.",
+    "start": 55.56,
+    "end": 59.96
+  },
+  {
+    "text": "Once we are there, we save a pointer to the node we are deleting, which is tempsNext.",
+    "start": 60.0,
+    "end": 66.0
+  },
+  {
+    "text": "Then we update tempsNext to skip over it, pointing instead to the node after the one being deleted.",
+    "start": 66.0,
+    "end": 73.5
+  },
+  {
+    "text": "Finally, we delete that saved node to free its memory.",
+    "start": 73.5,
+    "end": 78.0
+  },
+  {
+    "text": "If the node we are deleting happens to be the very last node, this same logic still works perfectly.",
+    "start": 78.0,
+    "end": 84.0
+  },
+  {
+    "text": "Temps next simply becomes node stemmed ET update correctly marked.",
+    "start": 84.0,
+    "end": 90.0
+  },
+  {
+    "text": "the new end of the list. That's the beauty of this approach. Deleting from the middle",
+    "start": 90.0,
+    "end": 95.68
+  },
+  {
+    "text": "and deleting the tail are actually the same operation. And because we might need to traverse",
+    "start": 95.68,
+    "end": 100.96
+  },
+  {
+    "text": "partway through the list to find the node before our target, both of these deletions",
+    "start": 100.96,
+    "end": 105.76
+  },
+  {
+    "text": "take o of n time. Only deleting the head is a constant time operation, since we already",
+    "start": 105.76,
+    "end": 111.92
+  },
+  {
+    "text": "know exactly where it is.",
+    "start": 111.92,
+    "end": 113.52
+  }
+]

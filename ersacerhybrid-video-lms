@@ -1,0 +1,10 @@
+[33mc85e02b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/ui-components-transition-library[m[33m, [m[1;31msumit/feature/ui-components-transition-library[m[33m, [m[1;31morigin/feature/ui-components-transition-library[m[33m)[m feat: add UI components and transition library
+ services/animation-service/package-lock.json       | 4392 [32m++++++++++++++++++++[m
+ .../src/components/AnimatedSubtitle.js             |   28 [32m+[m
+ .../src/components/AnimatedTitle.js                |   28 [32m+[m
+ services/animation-service/src/components/index.js |    2 [32m+[m
+ .../src/transitions/FadeTransition.js              |   12 [32m+[m
+ .../src/transitions/SlideTransition.js             |   14 [32m+[m
+ .../src/transitions/ZoomTransition.js              |   14 [32m+[m
+ .../animation-service/src/transitions/index.js     |    3 [32m+[m
+ 8 files changed, 4493 insertions(+)

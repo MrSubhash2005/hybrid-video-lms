@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-slate-100 font-sans antialiased overflow-x-hidden select-none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.6);
+}
+
+/* Glassmorphism Panel styles */
+.glass-panel {
+  background: rgba(16, 22, 34, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(22, 31, 48, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Timeline Custom Track styling */
+input[type="range"].custom-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"].custom-slider::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.1);
+  height: 4px;
+  border-radius: 2px;
+}
+input[type="range"].custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -4px;
+  background-color: #7c3aed;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #7c3aed;
+}
+
+/* Camera Zooms and Pans Simulation */
+.camera-container {
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.camera-zoom-in {
+  transform: scale(1.06);
+}
+.camera-pan-left {
+  transform: scale(1.04) translateX(2%);
+}
+.camera-pan-right {
+  transform: scale(1.04) translateX(-2%);
+}
+.camera-normal {
+  transform: scale(1.0) translateX(0);
+}
+
+/* VS Code syntax highlights */
+.code-keyword { color: #f472b6; font-weight: 500; }
+.code-attr { color: #38bdf8; }
+.code-string { color: #34d399; }
+.code-tag { color: #818cf8; }
+.code-comment { color: #64748b; font-style: italic; }
+
+/* Typing Cursor animation */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.typing-cursor::after {
+  content: '|';
+  color: #38bdf8;
+  animation: blink 0.8s infinite;
+}
+
+/* Pulsing Dots and Nodes */
+.glow-pulse-blue {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  animation: pulse-glow-blue 2s infinite alternate;
+}
+@keyframes pulse-glow-blue {
+  0% { box-shadow: 0 0 4px rgba(59, 130, 246, 0.3); }
+  100% { box-shadow: 0 0 16px rgba(59, 130, 246, 0.8); }
+}
+
+.glow-pulse-purple {
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
+  animation: pulse-glow-purple 2s infinite alternate;
+}
+@keyframes pulse-glow-purple {
+  0% { box-shadow: 0 0 4px rgba(124, 58, 237, 0.3); }
+  100% { box-shadow: 0 0 16px rgba(124, 58, 237, 0.8); }
+}
+
+/* Subtitle Fade transitions */
+@keyframes subtitle-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.subtitle-animate {
+  animation: subtitle-fade-in 0.25s ease-out forwards;
+}

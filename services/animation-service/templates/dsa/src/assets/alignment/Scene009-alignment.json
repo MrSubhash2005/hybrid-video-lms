@@ -1,0 +1,82 @@
+[
+  {
+    "text": "Let's put it all together into a complete C++ class.",
+    "start": 0.0,
+    "end": 3.76
+  },
+  {
+    "text": "Our constructor simply initializes the head to null.",
+    "start": 4.22,
+    "end": 7.46
+  },
+  {
+    "text": "To insert at the head, we create a new node and point it to the current head.",
+    "start": 8.04,
+    "end": 12.24
+  },
+  {
+    "text": "Then update the head pointer.",
+    "start": 12.6,
+    "end": 14.28
+  },
+  {
+    "text": "For inserting at the tail, if the list isn't empty, we traverse to the end before linking the new node.",
+    "start": 14.58,
+    "end": 21.32
+  },
+  {
+    "text": "Inserting in the middle also requires traversing to the specific position.",
+    "start": 21.62,
+    "end": 25.92
+  },
+  {
+    "text": "When it comes to deletion, the logic depends on the position.",
+    "start": 26.2,
+    "end": 29.76
+  },
+  {
+    "text": "Deleting the head is a simple pointer update and memory cleanup.",
+    "start": 30.0,
+    "end": 34.0
+  },
+  {
+    "text": "For any other position, we traverse to find the node right before our target,",
+    "start": 34.0,
+    "end": 39.5
+  },
+  {
+    "text": "update its next pointer to skip the deleted node, and free the memory.",
+    "start": 39.5,
+    "end": 45.0
+  },
+  {
+    "text": "It's crucial to handle edge cases like an empty list or the very last node.",
+    "start": 45.0,
+    "end": 51.0
+  },
+  {
+    "text": "Finally, traversing the list, we use a temporary pointer starting at the head,",
+    "start": 51.0,
+    "end": 55.5
+  },
+  {
+    "text": "Moving step by step using the next pointers until we reach NULL.",
+    "start": 55.5,
+    "end": 59.5
+  },
+  {
+    "text": "printing each value along the way.",
+    "start": 60.0,
+    "end": 62.44
+  },
+  {
+    "text": "And there you have it, a complete single linked list managing its own dynamic memory node",
+    "start": 62.44,
+    "end": 68.32
+  },
+  {
+    "text": "by node.",
+    "start": 68.32,
+    "end": 69.04
+  }
+]

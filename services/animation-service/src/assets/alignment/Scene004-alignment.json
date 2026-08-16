@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Let's insert our first new node.",
+    "start": 0.0,
+    "end": 2.2
+  },
+  {
+    "text": "We'll start with the easiest case, inserting at the head of the list.",
+    "start": 2.44,
+    "end": 6.44
+  },
+  {
+    "text": "Suppose we already have a list and we want to add a brand new value right at the very front.",
+    "start": 6.76,
+    "end": 12.92
+  },
+  {
+    "text": "Here's how we do it.",
+    "start": 13.4,
+    "end": 14.36
+  },
+  {
+    "text": "First, we create a new node and set its data to the value we want to insert.",
+    "start": 14.56,
+    "end": 19.28
+  },
+  {
+    "text": "Next, and this is the important part, we set the new node's next pointer to point to whatever the current head is.",
+    "start": 19.6,
+    "end": 27.0
+  },
+  {
+    "text": "This connects our mu node to the rest of the node.",
+    "start": 27.0,
+    "end": 30.0
+  },
+  {
+    "text": "the existing list. Finally, we update head itself so that it now points to our new node.",
+    "start": 30.0,
+    "end": 36.9
+  },
+  {
+    "text": "Just like that, our new node becomes the first node in the list. And everything that used",
+    "start": 36.9,
+    "end": 42.12
+  },
+  {
+    "text": "to come after the old head is still connected just one step further down the chain. Notice",
+    "start": 42.12,
+    "end": 48.32
+  },
+  {
+    "text": "what we didn't have to do. We didn't have to touch any of the other nodes. We didn't",
+    "start": 48.32,
+    "end": 53.84
+  },
+  {
+    "text": "We didn't shift anything. We didn't copy anything.",
+    "start": 53.84,
+    "end": 56.84
+  },
+  {
+    "text": "We just changed two pointers. The new nodes next.",
+    "start": 56.84,
+    "end": 59.84
+  },
+  {
+    "text": "and the head. That means inserting at the head takes constant time no matter how long the list is.",
+    "start": 60.0,
+    "end": 67.0
+  },
+  {
+    "text": "In Big O notation, we call this O of 1.",
+    "start": 67.0,
+    "end": 71.0
+  },
+  {
+    "text": "Compare that to an array where inserting at the front means shifting every single element over.",
+    "start": 71.0,
+    "end": 78.0
+  },
+  {
+    "text": "This is one of the biggest advantages linked lists have over arrays.",
+    "start": 78.0,
+    "end": 83.0
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "command": "git log --oneline",
+  "output": [
+    "e5f6g7h Added subtitles",
+    "c3d4e5f Added Git animations",
+    "a1b2c3d Initial project setup"
+  ]
+}

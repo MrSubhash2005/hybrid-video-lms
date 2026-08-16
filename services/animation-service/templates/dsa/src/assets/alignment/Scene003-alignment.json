@@ -1,0 +1,97 @@
+[
+  {
+    "text": "Now that we know what a node looks like, how do we actually move through a linked list?",
+    "start": 0.0,
+    "end": 4.8
+  },
+  {
+    "text": "This process is called traversal.",
+    "start": 5.16,
+    "end": 7.34
+  },
+  {
+    "text": "It means starting at the head and walking through the list one node at a time until we reach the end.",
+    "start": 7.84,
+    "end": 14.68
+  },
+  {
+    "text": "We know we've reached the end when a node's next pointer is non-chir.",
+    "start": 14.88,
+    "end": 18.72
+  },
+  {
+    "text": "That's our signal to stop.",
+    "start": 18.96,
+    "end": 20.4
+  },
+  {
+    "text": "Let's walk through it.",
+    "start": 20.8,
+    "end": 21.8
+  },
+  {
+    "text": "We create a temporary pointer and set it equal to head.",
+    "start": 22.12,
+    "end": 25.6
+  },
+  {
+    "text": "This temp pointer doesn't move the actual list around.",
+    "start": 25.96,
+    "end": 29.0
+  },
+  {
+    "text": "It's just a-",
+    "start": 29.0,
+    "end": 30.0
+  },
+  {
+    "text": "helper we use to walk through it safely, without losing track of where the list actually starts.",
+    "start": 30.0,
+    "end": 35.96
+  },
+  {
+    "text": "While temp is not equal to nantl, we look at its data, maybe print it out, and then",
+    "start": 35.96,
+    "end": 42.2
+  },
+  {
+    "text": "we move temp forward by setting it to temp's next pointer.",
+    "start": 42.2,
+    "end": 45.96
+  },
+  {
+    "text": "We repeat this until temp becomes nantl, which means there are no more nodes left.",
+    "start": 45.96,
+    "end": 52.8
+  },
+  {
+    "text": "This simple loop is the foundation for almost everything else we'll do with linked lists.",
+    "start": 52.8,
+    "end": 58.2
+  },
+  {
+    "text": "we are searching for a value.",
+    "start": 58.2,
+    "end": 59.8
+  },
+  {
+    "text": "counting the nodes or finding the last node so we can insert something new,",
+    "start": 60.0,
+    "end": 64.64
+  },
+  {
+    "text": "we'll always come back to this same pattern of walking forward one step at a time.",
+    "start": 64.64,
+    "end": 69.6
+  },
+  {
+    "text": "Unlike an array where you can jump straight to any index,",
+    "start": 69.6,
+    "end": 73.24
+  },
+  {
+    "text": "a linked list only lets you move forward one link at a time starting from the head.",
+    "start": 73.24,
+    "end": 78.56
+  }
+]

@@ -1,0 +1,172 @@
+[
+  {
+    "text": "Let's start with a question.",
+    "start": 0.0,
+    "end": 1.2
+  },
+  {
+    "text": "Imagine you have a list of numbers stored in an array",
+    "start": 1.6,
+    "end": 4.34
+  },
+  {
+    "text": "and you need to insert a new number right at the beginning.",
+    "start": 4.7,
+    "end": 7.8
+  },
+  {
+    "text": "What happens?",
+    "start": 8.04,
+    "end": 8.76
+  },
+  {
+    "text": "Every single element in that array has to shift over by one spot to make room.",
+    "start": 9.4,
+    "end": 14.56
+  },
+  {
+    "text": "If your array has a thousand elements, that's a thousand moves.",
+    "start": 14.86,
+    "end": 18.36
+  },
+  {
+    "text": "Just to add one value.",
+    "start": 18.74,
+    "end": 19.86
+  },
+  {
+    "text": "The same problem happens when you delete from the front.",
+    "start": 20.06,
+    "end": 22.96
+  },
+  {
+    "text": "Everything after it has to shift back to fill the gap.",
+    "start": 23.2,
+    "end": 26.2
+  },
+  {
+    "text": "This shifting takes time.",
+    "start": 26.44,
+    "end": 28.0
+  },
+  {
+    "text": "and as your data grows, that's how you can make your data grow.",
+    "start": 28.0,
+    "end": 30.0
+  },
+  {
+    "text": "That time grows too.",
+    "start": 30.0,
+    "end": 31.2
+  },
+  {
+    "text": "In the worst case, inserting or deleting at the front of an array costs O of N time,",
+    "start": 31.48,
+    "end": 37.36
+  },
+  {
+    "text": "where N is the number of elements.",
+    "start": 37.68,
+    "end": 39.8
+  },
+  {
+    "text": "That's because arrays store their elements in one continuous block of memory, back to back,",
+    "start": 40.16,
+    "end": 46.24
+  },
+  {
+    "text": "like seats in a row.",
+    "start": 46.48,
+    "end": 47.72
+  },
+  {
+    "text": "To insert in the middle of that row, you have to physically move people down.",
+    "start": 48.2,
+    "end": 52.8
+  },
+  {
+    "text": "So is there a way to add or remove elements without all that shifting?",
+    "start": 53.0,
+    "end": 57.92
+  },
+  {
+    "text": "Yes, that's exactly what",
+    "start": 57.92,
+    "end": 59.92
+  },
+  {
+    "text": "a linked list gives us.",
+    "start": 60.0,
+    "end": 61.72
+  },
+  {
+    "text": "So, instead of storing elements in one continuous block,",
+    "start": 61.72,
+    "end": 65.86
+  },
+  {
+    "text": "a linked list stores each element separately,",
+    "start": 65.86,
+    "end": 69.16
+  },
+  {
+    "text": "wherever there's free space in memory.",
+    "start": 69.16,
+    "end": 71.6
+  },
+  {
+    "text": "Each element knows where the next one lives",
+    "start": 71.6,
+    "end": 74.4
+  },
+  {
+    "text": "because it holds a reference or a pointer to it.",
+    "start": 74.4,
+    "end": 77.88
+  },
+  {
+    "text": "Think of it like a treasure hunt.",
+    "start": 77.88,
+    "end": 79.84
+  },
+  {
+    "text": "Each clue doesn't tell you the whole path.",
+    "start": 79.84,
+    "end": 82.36
+  },
+  {
+    "text": "It just tells you where to find the next clue.",
+    "start": 82.36,
+    "end": 85.56
+  },
+  {
+    "text": "As long as you know where to start,",
+    "start": 85.56,
+    "end": 87.72
+  },
+  {
+    "text": "you can follow the chain all the way through.",
+    "start": 87.72,
+    "end": 89.96
+  },
+  {
+    "text": "you",
+    "start": 89.96,
+    "end": 92.02
+  },
+  {
+    "text": "Because elements aren't glued together in memory, inserting a new one is often as simple as changing a couple of these references.",
+    "start": 90.0,
+    "end": 97.48
+  },
+  {
+    "text": "No shifting required.",
+    "start": 97.98,
+    "end": 99.28
+  },
+  {
+    "text": "In this lesson, we'll build this idea from the ground up, starting with a single building block called a node.",
+    "start": 99.78,
+    "end": 105.82
+  }
+]

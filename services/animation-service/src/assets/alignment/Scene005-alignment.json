@@ -1,0 +1,117 @@
+[
+  {
+    "text": "Now let's insert at the opposite end, the tail of the list.",
+    "start": 0.0,
+    "end": 3.84
+  },
+  {
+    "text": "This one is a little trickier because our list only keeps track of the head.",
+    "start": 3.84,
+    "end": 8.88
+  },
+  {
+    "text": "There's no separate pointer that already knows where the last node is.",
+    "start": 8.88,
+    "end": 13.44
+  },
+  {
+    "text": "That means to insert at the tail, we first have to find it ourselves by traversing the entire list.",
+    "start": 13.44,
+    "end": 20.48
+  },
+  {
+    "text": "Here's the plan.",
+    "start": 20.48,
+    "end": 21.36
+  },
+  {
+    "text": "We create our new node just like before but this time its next pointer should point to none blue",
+    "start": 21.36,
+    "end": 27.84
+  },
+  {
+    "text": "since it will become the very last",
+    "start": 27.84,
+    "end": 29.84
+  },
+  {
+    "text": "Next, we check a special case. If the list is currently empty, meaning head is nutledo,",
+    "start": 30.0,
+    "end": 37.0
+  },
+  {
+    "text": "then our new node simply becomes the head, and we're done.",
+    "start": 37.0,
+    "end": 41.0
+  },
+  {
+    "text": "But if the list already has nodes in it, we need to walk all the way to the end.",
+    "start": 41.0,
+    "end": 46.0
+  },
+  {
+    "text": "We start a temp pointer at head, and we keep moving forward node by node,",
+    "start": 46.0,
+    "end": 51.0
+  },
+  {
+    "text": "as long as temp's next pointer is not .np.",
+    "start": 51.0,
+    "end": 55.0
+  },
+  {
+    "text": "When that loop ends, temp is sitting on the very last node in the list.",
+    "start": 55.0,
+    "end": 60.0
+  },
+  {
+    "text": "Now we simply set temp's next pointer to our new node,",
+    "start": 60.0,
+    "end": 63.9
+  },
+  {
+    "text": "linking it onto the end of the chain.",
+    "start": 63.9,
+    "end": 66.28
+  },
+  {
+    "text": "What is the difference from inserting at the head?",
+    "start": 66.28,
+    "end": 69.04
+  },
+  {
+    "text": "Because we have to walk through every node to find the end,",
+    "start": 69.04,
+    "end": 72.64
+  },
+  {
+    "text": "this operation takes O of n time,",
+    "start": 72.64,
+    "end": 75.34
+  },
+  {
+    "text": "where n is the number of nodes in the list.",
+    "start": 75.34,
+    "end": 78.4
+  },
+  {
+    "text": "If we had kept a separate tail pointer,",
+    "start": 78.4,
+    "end": 80.54
+  },
+  {
+    "text": "we could do this in constant time instead,",
+    "start": 80.54,
+    "end": 83.1
+  },
+  {
+    "text": "but for now, we'll keep things simple",
+    "start": 83.1,
+    "end": 85.54
+  },
+  {
+    "text": "and always find the tail by walking there ourselves.",
+    "start": 85.54,
+    "end": 88.74
+  }
+]
